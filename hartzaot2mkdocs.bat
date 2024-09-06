@@ -27,14 +27,15 @@ for /r %%i in (*.docx) do (
     set /a count += 1
     echo Processing %%i
     pushd %%~dpi
-    pandoc -t gfm "%%~fi" -o "%%~dpni.md" --extract-media "images-!count!"
+    pandoc -t gfm "%%~fi" -o "%%~dpni.md" --extract-media "../img/images-!count!"
     del "%%~fi"
     popd
 )
 echo Done processing !count! files
 endlocal
 cd ..
-
+::Uncomment to skip PDF creation
+::goto :EOF
 echo 2. PDF
 mkdir hartzaot-pdf
 xcopy hartzaot-orig hartzaot-pdf /E > nul
