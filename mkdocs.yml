@@ -1,0 +1,5 @@
+site_name: ספר ההרצאות
+theme: readthedocs
+plugins:
+  - categories:
+      generate_index: false
